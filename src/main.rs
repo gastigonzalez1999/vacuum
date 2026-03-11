@@ -3,6 +3,7 @@
 use anyhow::Result;
 use clap::Parser;
 use colored::*;
+use std::io::IsTerminal;
 
 mod analyzer;
 mod cleaner;

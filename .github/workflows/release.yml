@@ -11,6 +11,7 @@ permissions:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: macos-latest
@@ -77,3 +78,4 @@ jobs:
             vacuum-macos-arm64/vacuum-macos-arm64.tar.gz
             vacuum-linux-x86_64/vacuum-linux-x86_64.tar.gz
             vacuum-windows-x86_64/vacuum-windows-x86_64.zip
+          fail_on_unmatched_files: false

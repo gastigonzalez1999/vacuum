@@ -22,7 +22,18 @@ if ($Arch -eq "arm64") {
 
 Write-Host "Downloading vacuum for Windows ${Arch}..."
 $TempZip = "$env:TEMP\vacuum.zip"
-Invoke-WebRequest -Uri $Url -OutFile $TempZip -UseBasicParsing
+try {
+    Invoke-WebRequest -Uri $Url -OutFile $TempZip -UseBasicParsing
+} catch {
+    Write-Host ""
+    Write-Host "Download failed (404). This usually means no release exists yet." -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "Install with Cargo instead:" -ForegroundColor Cyan
+    Write-Host "  cargo install --git https://github.com/$Repo"
+    Write-Host ""
+    Write-Host "Or build from source: clone the repo and run 'cargo build --release'"
+    exit 1
+}
 
 $TempDir = "$env:TEMP\vacuum-extract"
 if (Test-Path $TempDir) { Remove-Item -Recurse -Force $TempDir }
