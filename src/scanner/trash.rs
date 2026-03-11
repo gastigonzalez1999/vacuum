@@ -17,11 +17,11 @@ impl TrashScanner {
     fn get_trash_dirs(&self) -> Vec<PathBuf> {
         let mut dirs = Vec::new();
 
-        if let Some(home) = dirs::home_dir() {
+        if let Some(_home) = dirs::home_dir() {
             // macOS
             #[cfg(target_os = "macos")]
             {
-                let trash = home.join(".Trash");
+                let trash = _home.join(".Trash");
                 if trash.exists() {
                     dirs.push(trash);
                 }
@@ -30,7 +30,7 @@ impl TrashScanner {
             // Linux
             #[cfg(target_os = "linux")]
             {
-                let trash = home.join(".local/share/Trash/files");
+                let trash = _home.join(".local/share/Trash/files");
                 if trash.exists() {
                     dirs.push(trash);
                 }

@@ -231,7 +231,7 @@ fn is_safe_to_delete(path: &Path) -> bool {
         }
     }
     #[cfg(target_os = "windows")]
-    if let Ok(local_app_data) = dirs::cache_dir() {
+    if let Some(local_app_data) = dirs::cache_dir() {
         if path.starts_with(&local_app_data) {
             return true;
         }

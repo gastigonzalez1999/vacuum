@@ -17,11 +17,11 @@ impl CacheScanner {
     fn get_cache_dirs(&self, config: &Config) -> Vec<PathBuf> {
         let mut dirs = Vec::new();
 
-        if let Some(home) = dirs::home_dir() {
+        if let Some(_home) = dirs::home_dir() {
             // macOS
             #[cfg(target_os = "macos")]
             {
-                let library_caches = home.join("Library").join("Caches");
+                let library_caches = _home.join("Library").join("Caches");
                 if library_caches.exists() {
                     dirs.push(library_caches);
                 }
@@ -40,7 +40,7 @@ impl CacheScanner {
             // Linux / fallback
             #[cfg(not(target_os = "windows"))]
             {
-                let cache_dir = home.join(".cache");
+                let cache_dir = _home.join(".cache");
                 if cache_dir.exists() {
                     dirs.push(cache_dir);
                 }
