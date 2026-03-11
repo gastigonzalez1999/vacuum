@@ -4,14 +4,20 @@ Disk cleanup CLI for developers. Finds and removes build artifacts, caches, and 
 
 ## Install
 
+**macOS / Linux:**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/gastigonzalez1999/vacuum/main/install.sh | sh
+```
+
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/gastigonzalez1999/vacuum/main/install.ps1 | iex
 ```
 
 <details>
 <summary>Other install methods</summary>
 
-**With Cargo:**
+**With Cargo (all platforms):**
 ```bash
 cargo install --git https://github.com/gastigonzalez1999/vacuum
 ```
@@ -21,11 +27,6 @@ cargo install --git https://github.com/gastigonzalez1999/vacuum
 - [macOS Intel](https://github.com/gastigonzalez1999/vacuum/releases/latest/download/vacuum-macos-x86_64.tar.gz)
 - [Linux x86_64](https://github.com/gastigonzalez1999/vacuum/releases/latest/download/vacuum-linux-x86_64.tar.gz)
 - [Windows x86_64](https://github.com/gastigonzalez1999/vacuum/releases/latest/download/vacuum-windows-x86_64.zip)
-
-**Windows (PowerShell):**
-```powershell
-irm https://raw.githubusercontent.com/gastigonzalez1999/vacuum/main/install.ps1 | iex
-```
 
 </details>
 
